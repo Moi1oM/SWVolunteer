@@ -1,9 +1,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const sqlite3 = require("sqlite3");
+const cors = require("cors");
 
 const app = express();
-const port = 4000;
+const port = 3000;
+
+// CORS 미들웨어를 전역으로 설정
+// 이렇게 설정하면 모든 도메인에서 이 서버로의 요청이 허용됩니다.
+app.use(cors());
 
 // Body-parser middleware 사용 설정
 app.use(bodyParser.json());
@@ -59,6 +64,25 @@ app.get("/posts/:id", (req, res) => {
       res.status(200).json(row);
     } else {
       res.status(404).json({ error: "Post not found" });
+    }
+  });
+});
+
+// 게시글 삭제 라우트
+app.delete("/posts/:id", (req, res) => {
+  const id = req.params.id;
+
+  const query = "DELETE FROM posts WHERE id = ?";
+  db.run(query, [id], function (err) {
+    if (err) {
+      res.status(500).json({ error: err.message });
+      return;
+    }
+
+    if (this.changes === 0) {
+      res.status(404).json({ error: "Post not found" });
+    } else {
+      res.status(200).json({ message: "Post deleted successfully" });
     }
   });
 });

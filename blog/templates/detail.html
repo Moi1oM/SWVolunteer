@@ -18,14 +18,79 @@
       <div class="title">Detail!</div>
       <div class="container">
         <div class="detail-post_container">
-          <div class="detail_title">제목: {{post.title}}</div>
-          <div class="detail_content">내용: {{post.content}}</div>
+          <div class="detail_title" id="detail-title">제목: 로딩 중...</div>
+          <div class="detail_content" id="detail-content">내용: 로딩 중...</div>
           <div class="detail-post_btn">
             <a href="./home.html">홈 화면</a>
-            <a href="">삭제하기</a>
+            <a href="#" id="delete-button">삭제하기</a>
           </div>
         </div>
       </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          // 게시글 ID를 URL에서 가져오기
+          const postId = new URLSearchParams(window.location.search).get("id");
+
+          if (!postId) {
+            alert("게시글 ID가 제공되지 않았습니다.");
+            window.location.href = "/home.html"; // or wherever you want to redirect
+            return;
+          }
+
+          // 게시글 정보를 서버로부터 가져오기
+          fetch(`http://localhost:3000/posts/${postId}`)
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(
+                  `Network response was not ok ${response.statusText}`
+                );
+              }
+              return response.json();
+            })
+            .then((post) => {
+              document.getElementById(
+                "detail-title"
+              ).textContent = `제목: ${post.title}`;
+              document.getElementById(
+                "detail-content"
+              ).textContent = `내용: ${post.content}`;
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert("게시글을 불러오는 중 오류가 발생했습니다.");
+            });
+
+          // 삭제 버튼 이벤트 리스너 추가
+          const deleteButton = document.getElementById("delete-button");
+          deleteButton.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            const isConfirmed = confirm("정말로 이 게시글을 삭제하시겠습니까?");
+            if (isConfirmed) {
+              fetch(`http://localhost:3000/posts/${postId}`, {
+                method: "DELETE",
+              })
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error(
+                      `Network response was not ok ${response.statusText}`
+                    );
+                  }
+                  return response.json();
+                })
+                .then(() => {
+                  alert("게시글이 성공적으로 삭제되었습니다!");
+                  window.location.href = "./home.html"; // or wherever you want to redirect
+                })
+                .catch((error) => {
+                  console.error("Error:", error);
+                  alert("게시글 삭제 중 오류가 발생했습니다.");
+                });
+            }
+          });
+        });
+      </script>
     </body>
   </html>
 </html>

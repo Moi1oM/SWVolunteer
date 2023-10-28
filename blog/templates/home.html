@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
@@ -16,20 +15,31 @@
     </head>
 
     <body>
-      <div class="title">Home!</div>
-      <div class="container">
-        <div class="posts_box">
-          {% for post in posts %}
-          <a href="{% url 'detail' post.pk %}">
-            <div class="post_wrapper">
-              <div class="post_title">제목: {{post.title}}</div>
-              <div class="post_content">내용 : {{post.content}}</div>
-            </div>
-          </a>
-          {% endfor %}
-        </div>
-        <a id="post-button" href="./new.html">글 쓰러 가기!</a>
-      </div>
-    </body>
+  <div class="title">Home!</div>
+  <div class="container">
+    <div class="posts_box" id="posts_box"></div>
+    <a id="post-button" href="./new.html">글 쓰러 가기!</a>
+  </div>
+  <script>
+    fetch('http://localhost:3000/posts/all')
+      .then(response => response.json())
+      .then(posts => {
+        const postsBox = document.getElementById('posts_box');
+        posts.forEach(post => {
+          const postWrapper = document.createElement('div');
+          postWrapper.classList.add('post_wrapper');
+          postWrapper.innerHTML = `
+            <div class="post_title">제목: ${post.title}</div>
+            <div class="post_content">내용: ${post.content}</div>
+          `;
+          postWrapper.addEventListener('click', () => {
+            window.location.href = `./detail.html?id=${post.id}`;
+          });
+          postsBox.appendChild(postWrapper);
+        });
+      })
+      .catch(error => console.error('Error fetching posts:', error));
+  </script>
+</body>
   </html>
 </html>
