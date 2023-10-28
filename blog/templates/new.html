@@ -47,13 +47,16 @@
               'textarea[name="content"]'
             ).value;
 
-            fetch("http://localhost:3000/posts", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ title, content }),
-            })
+            fetch(
+              "https://port-0-swvolunteer-12fhqa2llo9rna9b.sel5.cloudtype.app/posts",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ title, content }),
+              }
+            )
               .then((response) => {
                 if (!response.ok) {
                   throw new Error(

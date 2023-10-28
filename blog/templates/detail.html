@@ -68,9 +68,12 @@
 
             const isConfirmed = confirm("정말로 이 게시글을 삭제하시겠습니까?");
             if (isConfirmed) {
-              fetch(`http://localhost:3000/posts/${postId}`, {
-                method: "DELETE",
-              })
+              fetch(
+                `https://port-0-swvolunteer-12fhqa2llo9rna9b.sel5.cloudtype.app/posts/${postId}`,
+                {
+                  method: "DELETE",
+                }
+              )
                 .then((response) => {
                   if (!response.ok) {
                     throw new Error(

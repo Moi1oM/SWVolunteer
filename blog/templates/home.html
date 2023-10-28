@@ -21,7 +21,7 @@
     <a id="post-button" href="./new.html">글 쓰러 가기!</a>
   </div>
   <script>
-    fetch('http://localhost:3000/posts/all')
+    fetch('https://port-0-swvolunteer-12fhqa2llo9rna9b.sel5.cloudtype.app/posts/all')
       .then(response => response.json())
       .then(posts => {
         const postsBox = document.getElementById('posts_box');
