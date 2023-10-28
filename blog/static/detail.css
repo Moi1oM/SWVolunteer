@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  width: 100%;
+  background-color: aliceblue;
+}
+
+.title {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 3.5rem;
+  color: #898989;
+  font-family: "Koulen", cursive;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.detail-post_container {
+  background-color: white;
+  width: 40%;
+  box-sizing: border-box;
+  height: 500px;
+  border-radius: 15px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+  padding: 3%;
+  font-family: "Jua", sans-serif;
+}
+
+.detail_title {
+  font-weight: 300;
+  margin-bottom: 5px;
+  font-size: 30px;
+}
+
+.detail_content {
+  font-size: 22px;
+}
+
+.detail-post_btn {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+.detail-post_btn > a {
+  color: black;
+  text-decoration: none;
+  padding: 5px;
+  background-color: linen;
+  font-size: 21px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+form > input {
+  box-sizing: border-box;
+  border: 1px solid #898989;
+  border-radius: 5px;
+  height: 25px;
+}
+
+form > button {
+  background-color: linen;
+  border: none;
+  font-family: "Jua", sans-serif;
+  font-size: 15px;
+}
+li > a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  background-color: aliceblue;
+}
+
+.title {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 3.5rem;
+  color: #898989;
+  font-family: "Koulen", cursive;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

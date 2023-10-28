@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <link rel="stylesheet" type="text/css" href="../static/detail.css" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Ceviche+One&family=Inter:wght@900&family=Jua&family=Koulen&display=swap"
+        rel="stylesheet"
+      />
+      <title>Project</title>
+    </head>
+    <body>
+      <div class="title">Detail!</div>
+      <div class="container">
+        <div class="detail-post_container">
+          <div class="detail_title">제목: {{post.title}}</div>
+          <div class="detail_content">내용: {{post.content}}</div>
+          <div class="detail-post_btn">
+            <a href="./home.html">홈 화면</a>
+            <a href="">삭제하기</a>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
+</html>
