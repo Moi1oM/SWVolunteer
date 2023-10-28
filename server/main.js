@@ -36,6 +36,7 @@ app.post("/posts", (req, res) => {
   const query = "INSERT INTO posts (title, content) VALUES (?, ?)";
   db.run(query, [title, content], function (err) {
     if (err) {
+      console.error(err.message);
       res.status(500).json({ error: err.message });
     } else {
       res.status(201).json({ id: this.lastID, title, content });
@@ -47,6 +48,7 @@ app.get("/posts/all", (req, res) => {
   const query = "SELECT * FROM posts";
   db.all(query, [], (err, rows) => {
     if (err) {
+      console.error(err.message);
       res.status(500).json({ error: err.message });
     } else {
       res.status(200).json(rows);
@@ -59,6 +61,7 @@ app.get("/posts/:id", (req, res) => {
   const query = "SELECT * FROM posts WHERE id = ?";
   db.get(query, [id], (err, row) => {
     if (err) {
+      console.error(err.message);
       res.status(500).json({ error: err.message });
     } else if (row) {
       res.status(200).json(row);
@@ -75,6 +78,7 @@ app.delete("/posts/:id", (req, res) => {
   const query = "DELETE FROM posts WHERE id = ?";
   db.run(query, [id], function (err) {
     if (err) {
+      console.error(err.message);
       res.status(500).json({ error: err.message });
       return;
     }
