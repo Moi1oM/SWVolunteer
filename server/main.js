@@ -1,8 +1,69 @@
 const express = require("express");
-//변수에 익스프레스를 실행해서 담았음
+const bodyParser = require("body-parser");
+const sqlite3 = require("sqlite3");
+
 const app = express();
-const PORT = 4000;
-//터미널에 node main.js를 입력하면 4000번 포트로 서버가 열린다.
-app.listen(PORT);
-//localhost:4000으로 로딩하면 페이지가 뜬다.
-//라우터를 연결해 주지 않아서 Cannot Get /이 나오는 게 정상 (인덱스(루트)를 가지고 올 수 없음)
+const port = 4000;
+
+// Body-parser middleware 사용 설정
+app.use(bodyParser.json());
+
+// SQLite 데이터베이스 연결
+const db = new sqlite3.Database("sqlite3.db", (err) => {
+  if (err) {
+    console.error(err.message);
+  } else {
+    console.log("Connected to the SQLite database.");
+    db.run(
+      "CREATE TABLE IF NOT EXISTS posts (id INTEGER PRIMARY KEY, title TEXT, content TEXT)"
+    );
+  }
+});
+
+// POST 요청 처리
+app.post("/posts", (req, res) => {
+  const { title, content } = req.body;
+
+  if (!title || !content) {
+    return res.status(400).json({ error: "Title and content are required." });
+  }
+
+  const query = "INSERT INTO posts (title, content) VALUES (?, ?)";
+  db.run(query, [title, content], function (err) {
+    if (err) {
+      res.status(500).json({ error: err.message });
+    } else {
+      res.status(201).json({ id: this.lastID, title, content });
+    }
+  });
+});
+
+app.get("/posts/all", (req, res) => {
+  const query = "SELECT * FROM posts";
+  db.all(query, [], (err, rows) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+    } else {
+      res.status(200).json(rows);
+    }
+  });
+});
+
+app.get("/posts/:id", (req, res) => {
+  const { id } = req.params;
+  const query = "SELECT * FROM posts WHERE id = ?";
+  db.get(query, [id], (err, row) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+    } else if (row) {
+      res.status(200).json(row);
+    } else {
+      res.status(404).json({ error: "Post not found" });
+    }
+  });
+});
+
+// 서버 실행
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
