@@ -25,3 +25,7 @@ https://www.lainyzine.com/ko/article/how-to-create-a-new-remote-git-repository-o
 ## 혹시나 크롬 설치가 안되어 있다면 크롬 설치!
 
 https://www.google.co.kr/chrome/?brand=CHBD&gclid=Cj0KCQjw4vKpBhCZARIsAOKHoWQngYl39ePJ8z_0b8S43yNQyii_QiiiID7u87YXsem3fGVdR1GQx_AaAq6bEALw_wcB&gclsrc=aw.ds
+
+## Cloudtype 회원가입
+
+https://cloudtype.io/
