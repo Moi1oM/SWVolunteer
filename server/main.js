@@ -51,6 +51,7 @@ app.get("/posts/all", (req, res) => {
       console.error(err.message);
       res.status(500).json({ error: err.message });
     } else {
+      rows.reverse();
       res.status(200).json(rows);
     }
   });

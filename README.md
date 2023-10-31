@@ -10,6 +10,12 @@ https://code.visualstudio.com/download
 
 https://git-scm.com/downloads
 
+## Node 다운로드 링크
+
+https://nodejs.org/en
+
+왼쪽 LTS 파일 다운 받기
+
 ## Github 회원가입
 
 https://github.com/signup
