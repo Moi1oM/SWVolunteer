@@ -20,26 +20,26 @@ const db = new sqlite3.Database("sqlite3.db", (err) => {
   } else {
     console.log("Connected to the SQLite database.");
     db.run(
-      "CREATE TABLE IF NOT EXISTS posts (id INTEGER PRIMARY KEY, title TEXT, content TEXT)"
+      "CREATE TABLE IF NOT EXISTS posts (id INTEGER PRIMARY KEY, title TEXT, content TEXT, img_src TEXT)"
     );
   }
 });
 
 // POST 요청 처리
 app.post("/posts", (req, res) => {
-  const { title, content } = req.body;
+  const { title, content, img_src } = req.body;
 
   if (!title || !content) {
     return res.status(400).json({ error: "Title and content are required." });
   }
 
-  const query = "INSERT INTO posts (title, content) VALUES (?, ?)";
-  db.run(query, [title, content], function (err) {
+  const query = "INSERT INTO posts (title, content, img_src) VALUES (?, ?, ?)";
+  db.run(query, [title, content, img_src], function (err) {
     if (err) {
       console.error(err.message);
       res.status(500).json({ error: err.message });
     } else {
-      res.status(201).json({ id: this.lastID, title, content });
+      res.status(201).json({ id: this.lastID, title, content, img_src });
     }
   });
 });

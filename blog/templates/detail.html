@@ -1,101 +1,99 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <link rel="stylesheet" type="text/css" href="../static/detail.css" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Ceviche+One&family=Inter:wght@900&family=Jua&family=Koulen&display=swap"
-        rel="stylesheet"
-      />
-      <title>Project</title>
-    </head>
-    <body>
-      <div class="title">Detail!</div>
-      <div class="container">
-        <div class="detail-post_container">
-          <div class="detail_title" id="detail-title">제목: 로딩 중...</div>
-          <div class="detail_content" id="detail-content">내용: 로딩 중...</div>
-          <div class="detail-post_btn">
-            <a href="./home.html">홈 화면</a>
-            <a href="#" id="delete-button">삭제하기</a>
-          </div>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../static/detail.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ceviche+One&family=Inter:wght@900&family=Jua&family=Koulen&display=swap"
+      rel="stylesheet"
+    />
+    <title>Project</title>
+  </head>
+  <body>
+    <div class="title">Detail!</div>
+    <div class="container">
+      <div class="detail-post_container">
+        <div class="detail_title" id="detail-title">제목: 로딩 중...</div>
+        <div class="detail_content" id="detail-content">내용: 로딩 중...</div>
+        <img src="" alt="로딩 중..." id="detail-image" />
+        <div class="detail-post_btn">
+          <a href="./home.html">홈 화면</a>
+          <a href="#" id="delete-button">삭제하기</a>
         </div>
       </div>
+    </div>
 
-      <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          // 게시글 ID를 URL에서 가져오기
-          const postId = new URLSearchParams(window.location.search).get("id");
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const postId = new URLSearchParams(window.location.search).get("id");
 
-          if (!postId) {
-            alert("게시글 ID가 제공되지 않았습니다.");
-            window.location.href = "/home.html"; // or wherever you want to redirect
-            return;
-          }
+        if (!postId) {
+          alert("게시글 ID가 제공되지 않았습니다.");
+          window.location.href = "/home.html";
+          return;
+        }
 
-          // 게시글 정보를 서버로부터 가져오기
-          fetch(
-            `https://port-0-swvolunteer-12fhqa2llo9rna9b.sel5.cloudtype.app/posts/${postId}`
-          )
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error(
-                  `Network response was not ok ${response.statusText}`
-                );
-              }
-              return response.json();
-            })
-            .then((post) => {
-              document.getElementById(
-                "detail-title"
-              ).textContent = `제목: ${post.title}`;
-              document.getElementById(
-                "detail-content"
-              ).textContent = `내용: ${post.content}`;
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-              alert("게시글을 불러오는 중 오류가 발생했습니다.");
-            });
-
-          // 삭제 버튼 이벤트 리스너 추가
-          const deleteButton = document.getElementById("delete-button");
-          deleteButton.addEventListener("click", function (event) {
-            event.preventDefault();
-
-            const isConfirmed = confirm("정말로 이 게시글을 삭제하시겠습니까?");
-            if (isConfirmed) {
-              fetch(
-                `https://port-0-swvolunteer-12fhqa2llo9rna9b.sel5.cloudtype.app/posts/${postId}`,
-                {
-                  method: "DELETE",
-                }
-              )
-                .then((response) => {
-                  if (!response.ok) {
-                    throw new Error(
-                      `Network response was not ok ${response.statusText}`
-                    );
-                  }
-                  return response.json();
-                })
-                .then(() => {
-                  alert("게시글이 성공적으로 삭제되었습니다!");
-                  window.location.href = "./home.html"; // or wherever you want to redirect
-                })
-                .catch((error) => {
-                  console.error("Error:", error);
-                  alert("게시글 삭제 중 오류가 발생했습니다.");
-                });
+        fetch(
+          `https://port-0-swvolunteer-12fhqa2llo9rna9b.sel5.cloudtype.app/posts/${postId}`
+        )
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                `Network response was not ok ${response.statusText}`
+              );
             }
+            return response.json();
+          })
+          .then((post) => {
+            console.log(post);
+            document.getElementById(
+              "detail-title"
+            ).textContent = `제목: ${post.title}`;
+            document.getElementById(
+              "detail-content"
+            ).textContent = `내용: ${post.content}`;
+            document.getElementById("detail-image").src = post.img_src; // 'img_src' 필드를 사용하여 이미지 URL 설정
+            document.getElementById("detail-image").alt = post.title; // 제목을 이미지 설명으로 사용
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("게시글을 불러오는 중 오류가 발생했습니다.");
           });
+
+        const deleteButton = document.getElementById("delete-button");
+        deleteButton.addEventListener("click", function (event) {
+          event.preventDefault();
+          const isConfirmed = confirm("정말로 이 게시글을 삭제하시겠습니까?");
+          if (isConfirmed) {
+            fetch(
+              `https://port-0-swvolunteer-12fhqa2llo9rna9b.sel5.cloudtype.app/posts/${postId}`,
+              {
+                method: "DELETE",
+              }
+            )
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error(
+                    `Network response was not ok ${response.statusText}`
+                  );
+                }
+                return response.json();
+              })
+              .then(() => {
+                alert("게시글이 성공적으로 삭제되었습니다!");
+                window.location.href = "./home.html";
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                alert("게시글 삭제 중 오류가 발생했습니다.");
+              });
+          }
         });
-      </script>
-    </body>
-  </html>
+      });
+    </script>
+  </body>
 </html>

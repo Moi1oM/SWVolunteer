@@ -31,6 +31,12 @@
               name="content"
               required
             ></textarea>
+            <input
+              type="text"
+              placeholder="사진 주소를 입력하세요!"
+              name="img_src"
+              required
+            />
             <input id="new-post_btn" type="submit" value="작성하기" />
           </form>
         </div>
@@ -46,6 +52,7 @@
             const content = form.querySelector(
               'textarea[name="content"]'
             ).value;
+            const img_src = form.querySelector('input[name="img_src"]').value;
 
             fetch(
               "https://port-0-swvolunteer-12fhqa2llo9rna9b.sel5.cloudtype.app/posts",
@@ -54,7 +61,7 @@
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ title, content }),
+                body: JSON.stringify({ title, content, img_src }),
               }
             )
               .then((response) => {
