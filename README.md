@@ -10,12 +10,6 @@ https://code.visualstudio.com/download
 
 https://git-scm.com/downloads
 
-## Node 다운로드 링크
-
-https://nodejs.org/en
-
-왼쪽 LTS 파일 다운 받기
-
 ## Github 회원가입
 
 https://github.com/signup
@@ -32,14 +26,30 @@ https://www.lainyzine.com/ko/article/how-to-create-a-new-remote-git-repository-o
 
 https://www.google.co.kr/chrome/?brand=CHBD&gclid=Cj0KCQjw4vKpBhCZARIsAOKHoWQngYl39ePJ8z_0b8S43yNQyii_QiiiID7u87YXsem3fGVdR1GQx_AaAq6bEALw_wcB&gclsrc=aw.ds
 
-## Cloudtype 회원가입
-
-https://cloudtype.io/
-
 ## 수업용 템플릿
 
-https://www.dropbox.com/scl/fi/d51nlqvqobzy0okdqmf0g/SWVolunteer-before.zip?rlkey=asstplv2upwg9q7d6dtez0rv7&dl=0
+https://www.dropbox.com/scl/fi/cc9y3u819hdawqn008947/SWVolunteer_before.zip?rlkey=gwq8nsobyesae6iatuamxdj60&dl=0
 
 ## 완성 템플릿
 
 https://www.dropbox.com/scl/fi/gtwhtyinmy7muhf7kwokn/SWVolunteer-after.zip?rlkey=7meoceobqhq87vxmchzpyj24a&dl=0
+
+---
+
+---
+
+---
+
+---
+
+### 이 아래는 굳이 설치할 필요 없는 것들입니다!
+
+## Cloudtype 회원가입
+
+https://cloudtype.io/
+
+## Node 다운로드 링크
+
+https://nodejs.org/en
+
+왼쪽 LTS 파일 다운 받기
