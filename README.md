@@ -26,13 +26,13 @@ https://www.lainyzine.com/ko/article/how-to-create-a-new-remote-git-repository-o
 
 https://www.google.co.kr/chrome/?brand=CHBD&gclid=Cj0KCQjw4vKpBhCZARIsAOKHoWQngYl39ePJ8z_0b8S43yNQyii_QiiiID7u87YXsem3fGVdR1GQx_AaAq6bEALw_wcB&gclsrc=aw.ds
 
-## 수업용 템플릿
+## 수업용 템플릿 (301호)
 
-https://www.dropbox.com/scl/fi/cc9y3u819hdawqn008947/SWVolunteer_before.zip?rlkey=gwq8nsobyesae6iatuamxdj60&dl=0
+https://www.dropbox.com/scl/fi/oj9jfvf2ne7u8uc7f0w4a/SWVolunteer_before-301.zip?rlkey=bh0thaxogqpiz61rpslebcboq&dl=0
 
-## 완성 템플릿
+## 수업용 템플릿 (302호)
 
-https://www.dropbox.com/scl/fi/gtwhtyinmy7muhf7kwokn/SWVolunteer-after.zip?rlkey=7meoceobqhq87vxmchzpyj24a&dl=0
+https://www.dropbox.com/scl/fi/js39udcrjsruqlqqvkxxv/SWVolunteer_before-302.zip?rlkey=ksud7sxphb3uhlx9cjmgf4u05&dl=0
 
 ---
 
@@ -53,3 +53,7 @@ https://cloudtype.io/
 https://nodejs.org/en
 
 왼쪽 LTS 파일 다운 받기
+
+## 완성 템플릿
+
+https://www.dropbox.com/scl/fi/gtwhtyinmy7muhf7kwokn/SWVolunteer-after.zip?rlkey=7meoceobqhq87vxmchzpyj24a&dl=0
