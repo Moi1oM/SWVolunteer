@@ -10,6 +10,10 @@ https://code.visualstudio.com/download
 
 https://git-scm.com/downloads
 
+## 수업용 템플릿 (305호)
+
+https://www.dropbox.com/scl/fi/hvrgewg89vka8w9ay61qi/SWVolunteer_before-301.zip?rlkey=bw4p5594ma17n0qddeypjcxv6&dl=0
+
 ## Github 회원가입
 
 https://github.com/signup
@@ -25,10 +29,6 @@ https://www.lainyzine.com/ko/article/how-to-create-a-new-remote-git-repository-o
 ## 혹시나 크롬 설치가 안되어 있다면 크롬 설치!
 
 https://www.google.co.kr/chrome/?brand=CHBD&gclid=Cj0KCQjw4vKpBhCZARIsAOKHoWQngYl39ePJ8z_0b8S43yNQyii_QiiiID7u87YXsem3fGVdR1GQx_AaAq6bEALw_wcB&gclsrc=aw.ds
-
-## 수업용 템플릿 (305호)
-
-https://www.dropbox.com/scl/fi/hvrgewg89vka8w9ay61qi/SWVolunteer_before-301.zip?rlkey=bw4p5594ma17n0qddeypjcxv6&dl=0
 
 ---
 
