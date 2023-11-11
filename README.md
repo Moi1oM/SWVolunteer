@@ -26,13 +26,9 @@ https://www.lainyzine.com/ko/article/how-to-create-a-new-remote-git-repository-o
 
 https://www.google.co.kr/chrome/?brand=CHBD&gclid=Cj0KCQjw4vKpBhCZARIsAOKHoWQngYl39ePJ8z_0b8S43yNQyii_QiiiID7u87YXsem3fGVdR1GQx_AaAq6bEALw_wcB&gclsrc=aw.ds
 
-## 수업용 템플릿 (301호)
+## 수업용 템플릿 (305호)
 
 https://www.dropbox.com/scl/fi/hvrgewg89vka8w9ay61qi/SWVolunteer_before-301.zip?rlkey=bw4p5594ma17n0qddeypjcxv6&dl=0
-
-## 수업용 템플릿 (302호)
-
-https://www.dropbox.com/scl/fi/q2k8iao8b9mg5cbu9d77n/SWVolunteer_before-302.zip?rlkey=pdol3a6ini1jd1cqaf44wpxzh&dl=0
 
 ---
 
@@ -57,3 +53,7 @@ https://nodejs.org/en
 ## 완성 템플릿
 
 https://www.dropbox.com/scl/fi/gtwhtyinmy7muhf7kwokn/SWVolunteer-after.zip?rlkey=7meoceobqhq87vxmchzpyj24a&dl=0
+
+## 수업용 템플릿 (302호)
+
+https://www.dropbox.com/scl/fi/q2k8iao8b9mg5cbu9d77n/SWVolunteer_before-302.zip?rlkey=pdol3a6ini1jd1cqaf44wpxzh&dl=0
